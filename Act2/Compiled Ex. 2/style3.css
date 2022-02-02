@@ -1,0 +1,181 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: courier;
+}
+
+.banner{
+	height: 100vh;
+	width: 100%;
+	background-image: url(bg.jpg);
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+
+.navigation{
+	width: 85%;
+	margin: auto;
+	padding: 35px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.logo{
+	width: 20%;
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
+	cursor: pointer;
+}
+
+.navigation ul li{
+	list-style: none;
+	display: inline-block;
+	margin: 0 20px;
+	position: relative;
+}
+
+.navigation ul li::after{
+	content: '';
+	height: 3px;
+	width: 0;
+	background: #8b0000;
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	transition: 0.5s;
+}
+
+.navigation ul li:hover:after{
+	content: '';
+	height: 3px;
+	width: 100%;
+	background: #8b0000;
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+}
+
+.navigation ul li a{
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+}
+
+.content{
+	animation: fadeIn 2.5s;
+	width: 100%;
+	position: absolute;
+	top: 20%;
+	transform: translateY(-50%);
+	text-align: center;
+	color: white;
+}
+
+
+.content h2{
+	font-size: 40px;
+	margin-top: 25px;
+}
+
+.content p{
+	margin: 15px auto;
+	font-weight: 100;
+	line-height: 25px;
+}
+
+button{
+	animation: fadeIn 2.5s;
+	width: 150px;
+	height: 40px;
+	padding: 0;
+	text-align: center;
+	margin: 10px 5px;
+	border-radius: 15px;
+	font-weight: bold;
+	border: 2px solid #8b0000;
+	background: transparent;
+	color: white;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+input{
+	animation: fadeIn 2.5s;
+	width: 150px;
+	height: 35px;
+	border: none;
+	color: white;
+	background: none;
+}
+
+span{
+	background: #8b0000;
+	height: 100%;
+	width: 0;
+	border-radius: 15px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: -1;
+	transition: 0.5s;
+}
+
+button:hover span{
+	width: 100%;
+}
+
+button:hover{
+	border: none;
+}
+
+.mechanics{
+	animation: fadeIn 2.5s;
+}
+
+@keyframes fadeIn{
+	from{
+		opacity: 0;
+	}
+	
+	to{
+		opacity: 1;
+	}
+}
+
+table{
+	color: white;
+	width: 75%;
+	height: 10px;
+	position: absolute;
+	z-index: 2;
+	left: 51%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	border-spacing: 15px;
+}
+
+td{
+	border: 2px solid #8b0000;
+	border-radius: 15px;
+	background-color: #8b0000;
+}
+
+.images{
+	border: 2px solid #8b0000;
+	border-radius: 15px;
+}
+
+
+.lower{
+	width: 100%;
+	position: absolute;
+	top: 90%;
+	transform: translateY(-50%);
+	text-align: center;
+}
+

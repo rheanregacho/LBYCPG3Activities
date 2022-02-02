@@ -1,0 +1,238 @@
+<!-- #1 -->
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <script>  -->
+<!-- var customerName = prompt("Please enter your name", ""); -->
+<!-- if (customerName!= null) {document.getElementById("welcome").innerHTML = "Hello " + customerName + "! How are you today?";} -->
+<!-- </script> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- <div id="welcome">My First JavaScript code.</div> -->
+<!-- </body> -->
+<!-- </html> -->
+
+<!-- #2 -->
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <script>  -->
+<!-- var customerName = prompt("Please enter your name", ""); -->
+<!-- if (customerName!= null) {document.getElementById("username").value = customerName;} -->
+<!-- </script> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- <input type="text" id="username" /> -->
+<!-- </body> -->
+<!-- </html> -->
+
+<!-- #3 -->
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <style>  -->
+<!-- .center { -->
+    <!-- text-align: center; -->
+    <!-- color: green; -->
+<!-- } -->
+<!-- .center_black { -->
+    <!-- text-align: center; -->
+    <!-- color: black; -->
+<!-- } -->
+<!-- </style> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- <p id="username" > Hi, user! </p> -->
+<!-- </body> -->
+<!-- </html> -->
+ 
+<!-- #4 -->
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <script>  -->
+<!-- function ChangeStyle ( ) -->
+<!-- { -->
+    <!-- document.getElementById("username").className = "center_black"; -->
+<!-- } -->
+<!-- </script> -->
+<!-- <style>  -->
+<!-- .center { -->
+    <!-- text-align: center; -->
+    <!-- color: green; -->
+<!-- } -->
+<!-- .center_black { -->
+    <!-- text-align: center; -->
+    <!-- color: black; -->
+<!-- } -->
+<!-- </style> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- <p id="username" onmouseover="ChangeStyle()"> Hi, user! </p> -->
+<!-- </body> -->
+<!-- </html> -->
+
+<!-- #5 -->
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <link rel="stylesheet" type="text/css" href="mystyle.css"> -->
+<!-- <script>  -->
+<!-- function RegisterEvents ( ){clickme.onclick = ChangeStyle; -->
+<!--     username.onclick = ChangeStyle;} -->
+<!-- function ChangeStyle ( ){ this.style.backgroundColor = "#000000";} -->
+<!-- </script> -->
+<!-- </head> -->
+<!-- <body onload="RegisterEvents()" > -->
+<!-- <div id="username"> Hi, user! </div> -->
+<!-- <button id="clickme"> Click Me! </button> -->
+<!-- </body> -->
+<!-- </html> -->
+
+<!-- #6 -->
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <link rel="stylesheet" type="text/css" href="mystyle.css"> -->
+<!-- <script>  -->
+<!-- function RegisterEvents ( ){clickme.onmousedown = ChangeStyle; -->
+<!--     clickme.onmouseup = ChangeStyleBackToOriginal;} -->
+<!-- function ChangeStyle ( ){this.style.backgroundColor = "#000000";} -->
+<!-- function ChangeStyleBackToOriginal ( ){this.style.backgroundColor = "#FFFFFF";} -->
+<!-- </script> -->
+<!-- </head> -->
+<!-- <body onload="RegisterEvents()" > -->
+<!-- <button id="clickme"> Click Me!</button> -->
+<!-- </body> -->
+<!-- </html> -->
+
+<!-- #7 -->
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <link rel="stylesheet" type="text/css" href="mystyle.css"> -->
+<!-- <script>  -->
+<!-- function ChangeStyle ( button ){button.style.backgroundColor = "#000000";} -->
+<!-- function ChangeStyleBackToOriginal ( button ){button.style.backgroundColor = "#FFFFFF";} -->
+<!-- </script> -->
+<!-- </head> -->
+<!-- <body > -->
+<!-- <button id="clickme" onmousedown="ChangeStyle(this)" onmouseup="ChangeStyleBackToOriginal(this)"> Click Me! </button> -->
+<!-- </body> -->
+<!-- </html> -->
+
+<!-- #8 -->
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- </head> -->
+<!-- <body > -->
+	<!-- <form action="process_form.php"> -->
+	<!-- First name:<br> -->
+	<!-- <input type="text" id="first_name"><br> -->
+	<!-- Last name:<br> -->
+	<!-- <input type="text" id="last_name""><br><br> -->
+	<!-- <input type="submit" value="Submit"></form> -->
+<!-- </body></html> -->
+
+<!-- #9 -->
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <script> -->
+<!-- function ValidateFirstName ( ){var firstName = document.getElementById("first_name"); -->
+<!--     if (firstName.value == "") -->
+<!--     {       return false; -->
+<!--     } -->
+<!--     else -->
+<!--     { -->
+<!--        return true; -->
+<!--     }} -->
+<!-- </script> -->
+<!-- </head> -->
+<!-- <body > -->
+	<!-- <form action="process_form.php" onsubmit="return ValidateFirstName();"> -->
+	<!-- First name:<br> -->
+	<!-- <input type="text" id="first_name"><br> -->
+	<!-- Last name:<br> -->
+	<!-- <input type="text" id="last_name"><br><br> -->
+	<!-- <input type="submit" value="Submit"></form> -->
+<!-- </body> -->
+<!-- </html> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<script>
+
+function ValidateFirstName ( )
+{
+    var firstName = document.getElementById("first_name");
+
+    if (firstName.value == "")
+
+    {
+
+       return false;
+
+    }
+
+    else
+
+    {
+
+       return true;
+
+    }
+}
+
+function addCheckboxes ()
+{
+
+ var radio = document.getElementById("iLikeJs");
+
+ if (radio.checked)
+
+ {
+
+    document.getElementById("moreCheckboxes").innerHTML = "<input type='checkbox' name='why' value='because' />"; 
+
+ }
+
+ else
+
+ {
+
+     document.getElementById("moreCheckboxes").innerHTML = "";
+
+ }
+
+ 
+}
+
+</script>
+
+</head>
+
+<body >
+
+   <form action="process_form.php" onsubmit="return ValidateFirstName();">
+      First name:<br>
+      <input type="text" id="first_name">
+      <br>
+      Last name:<br>
+      <input type="text" id="last_name""> <br>
+
+      Do you like JavaScript?<br>
+      <input type="radio" id="iLikeJs" name="likeJavascript" value="yes" onclick="addCheckboxes()">
+
+      <input type="radio" name="likeJavascript" value="no" onclick="addCheckboxes()"><br>
+      <div id="moreCheckboxes"> </div>
+      <br><br>
+      <input type="submit" value="Submit">
+   </form>
+
+</body>
+</html>

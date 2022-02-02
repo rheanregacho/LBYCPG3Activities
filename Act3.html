@@ -1,0 +1,28 @@
+<html>
+<body onload = "func(arr)">
+<script>
+
+var arr = ['DOO', 'Rhennie Anne', 'Marxette Diane', 'Anjelo Louise', 'Ralph Joshua', 'Jonathan'];
+function func(arr){
+	var name = prompt("Username:", "");
+	if(name.length == 4){
+		alert("Yes.");
+	} else{
+		alert("No.");
+	}
+	var count;
+	for(count = 0; count < 6; count++) {
+	   document.write(arr[count]);
+	   document.write("<br/>");
+	}
+}
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

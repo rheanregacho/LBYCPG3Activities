@@ -1,0 +1,61 @@
+function p = flc(t)
+    % Define the input variables
+    [temp,hum] = meshgrid(10:0.1:40,0:100);
+    
+    % Define the temperature membership function
+    hot = max(double(temp >= 35),exp((-(temp - 35) .^ 2) / 20));
+    warm = exp((-(temp - 27.5) .^ 2) / 20);
+    cold = max(double(temp <= 20),exp((-(temp - 20) .^ 2) / 20));
+
+    % Define the humidity membership function
+    low = max(double(hum <= 20),exp((-(hum - 20) .^ 2) / 180));
+    med = exp((-(hum - 50) .^ 2) / 320);
+    high = max(double(hum >= 80),exp((-(hum - 80) .^ 2) / 180));
+
+    % Visualise the membership functions
+    close all; figure;
+    subplot(1,2,1); plot(temp(1,:),hot(1,:),'r',temp(1,:),warm(1,:),'g',temp(1,:),cold(1,:),'b');
+    subplot(1,2,2); plot(hum(:,1),low(:,1),'b',hum(:,1),med(:,1),'g',hum(:,1),high(:,1),'r');
+    
+    % Fuzzy rules
+    off = min(cold,max(low,med));
+    weak = max(min(cold,high),min(warm,low));
+    strong = max(min(warm,max(med,high)),min(hot,max(cat(3,low,med,high),[],3)));
+    
+    % Visualise the result of the fuzzy rules
+    figure;
+    subplot(1,3,1); mesh(temp,hum,off);
+    subplot(1,3,2); mesh(temp,hum,weak);
+    subplot(1,3,3); mesh(temp,hum,strong);
+    
+    % Define the output membership function
+    power = -20:120;
+    omf = max(double(power <= 10),exp((-(power - 10) .^ 2) / 180));
+    wmf = max([double(power >= 30 & power <= 60); exp((-(power - 30) .^ 2) / 180); exp((-(power - 60) .^ 2) / 180)]);
+    smf = max(double(power >= 80),exp((-(power - 80) .^ 2) / 180));
+
+    % Visualise the membership functions
+    figure;
+    plot(power,omf,'b',power,wmf,'g',power,smf,'r');
+    
+    % Reshape the vectors
+    omf = repmat(reshape(omf,1,1,[]),[size(off) 1]);
+    wmf = repmat(reshape(wmf,1,1,[]),[size(weak) 1]);
+    smf = repmat(reshape(smf,1,1,[]),[size(strong) 1]);
+    
+    % Truncate the membership functions for each temp/humidity combination
+    omf = min(repmat(off,[1 1 size(omf,3)]),omf);
+    wmf = min(repmat(weak,[1 1 size(wmf,3)]),wmf);
+    smf = min(repmat(strong,[1 1 size(smf,3)]),smf);
+    
+    % Combine the membership functions
+    mf = max(cat(4,omf,wmf,smf),[],4);
+    
+    % Defuzzify
+    power = repmat(reshape(power,[1 1 size(mf,3)]),size(mf(:,:,1)));
+    strength = sum(power .* mf,3) ./ sum(mf,3);
+    
+    % Plot the resulting response
+    figure;
+    mesh(temp,hum,strength);
+end
